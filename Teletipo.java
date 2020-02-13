@@ -46,22 +46,24 @@ public class Teletipo {
  * QUE CUMPLEN CON TAL FUNCION DE BORRADO TOTAL Y DE RETROCESO...
  * */
 	public void escritura() 
-	{	try{int x=0;
-		for(String es: getCaracteres()) 
-		{
-			x=es.indexOf("/");
-			if(es.equals("/"))
+	{	try{
+		int x=0;
+		x=getCaracteres().indexOf("/");
+		//en este atributo se va a guardar la ubicacion del caracter que deseo buscar en el array
+		//System.out.println("Tamaño del array: "+ getCaracteres().size());
+			//System.out.println(x);
+			if(getCaracteres().contains("/"))//en esta condicion comprueba si esta el caracter  "/" dentro del array
+				//si lo encuentra entonces ingresa al if (true)
 			{
-				getCaracteres().remove(x);
-				getCaracteres().remove(x-1);
+				getCaracteres().remove("/");//borra el contenido del array con el caracter "/"
+				getCaracteres().remove(x-1);//borra indicado por el indice el contenido previo al caracter "/"
 			}else {
-				if(es.equals("&")) 
+				if(getCaracteres().contains("&")) 
 				{
-					getCaracteres().removeAll(getCaracteres());
+					getCaracteres().clear();//borra todo el contenido del array
 				}
 			}
-		}
-		}catch (NullPointerException miException){
+		}catch (Exception miException){
 			System.out.println("No funciono");
 		}finally 
 		{
